@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/music_background"
+    >
+
+    <TextView
+        android:id="@+id/music_play_musictitle"
+        android:text="夏天的风"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp"
+        android:textColor="#fff00f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/music_play_musicartist"
+        android:layout_below="@id/music_play_musictitle"
+        android:layout_centerHorizontal="true"
+        android:text="温岚"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <SeekBar
+        android:id="@+id/music_play_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/music_handle_btnlayout" />
+
+    <RelativeLayout
+        android:id="@+id/music_handle_btnlayout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/music_play_btn_previous"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@mipmap/music_btn_previous" />
+        <Button
+            android:id="@+id/music_play_btn_repeat"
+            android:layout_toRightOf="@id/music_play_btn_previous"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/musci_btn_repeat"/>
+        <Button
+            android:id="@+id/music_play_btn_play"
+            android:layout_centerInParent="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/music_btn_play"/>
+        <Button
+            android:id="@+id/music_play_btn_shuffle"
+            android:layout_toLeftOf="@+id/music_play_btn_next"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/music_btn_shuffl"/>
+        <Button
+            android:id="@id/music_play_btn_next"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/music_btn_next"/>
+    </RelativeLayout>
+</RelativeLayout>
