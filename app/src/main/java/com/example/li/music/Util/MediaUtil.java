@@ -29,7 +29,7 @@ public class MediaUtil {
         return min + ":" +sec;
     }
 
-    public List<Mp3Info> getMp3Infos(ContentResolver contentResolver) {
+    public static List<Mp3Info> getMp3Infos(ContentResolver contentResolver) {
         ContentResolver resolver = contentResolver;
         Cursor cursor = contentResolver.query(
                 MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null,

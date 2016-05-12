@@ -63,7 +63,6 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
         tv_title = (TextView) view.findViewById(R.id.music_play_musictitle);
         tv_artist = (TextView) view.findViewById(R.id.music_play_musicartist);
         seekBar = (SeekBar) view.findViewById(R.id.music_play_seekBar);
-        seekBar.setOnSeekBarChangeListener(mChangeListener);
         tv_title.setText(mtitle);
         tv_artist.setText(martist);
         btn_previous = (Button) view.findViewById(R.id.music_play_btn_previous);
@@ -105,24 +104,6 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
         }
     }
 
-    SeekBar.OnSeekBarChangeListener mChangeListener = new SeekBar.OnSeekBarChangeListener() {
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            music_service.isChanging=true;
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            //当拖动停止后，控制mediaPlayer播放指定位置的音乐
-            music_service.mediaPlayer.seekTo(seekBar.getProgress());
-            Music_Service.isChanging=false;
-        }
-    };
 
     //向后台Service发送控制广播
     protected void sendBroadcastToService(int state, int btn){

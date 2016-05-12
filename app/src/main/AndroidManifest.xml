@@ -32,7 +32,11 @@
 
         <service android:name=".Service.Music_Service" />
 
-        <receiver android:name=".Service.Music_Service$Music_Service_Receiver" />
+        <receiver android:name=".activity.Fragment_Music_Begin$HomeReceiver" />
+
+        <receiver android:name=".Service.Music_Service$MyReceiver" />
+
+        <receiver android:name=".activity.Fragment_Music_Play$Music_Play_Receiver" />
     </application>
 
 </manifest>

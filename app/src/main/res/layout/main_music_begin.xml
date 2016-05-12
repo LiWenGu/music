@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/music_play_btn_previous"
+            android:id="@+id/music_begin_btn_previous"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
@@ -20,29 +20,29 @@
             android:layout_alignParentLeft="true"
             android:background="@mipmap/music_btn_previous" />
         <Button
-            android:id="@+id/music_play_btn_repeat"
-            android:layout_toRightOf="@id/music_play_btn_previous"
+            android:id="@+id/music_begin_btn_repeat"
+            android:layout_toRightOf="@id/music_begin_btn_previous"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@mipmap/musci_btn_repeat"/>
         <Button
-            android:id="@+id/music_play_btn_play"
+            android:id="@+id/music_begin_btn_play"
             android:layout_centerInParent="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@mipmap/music_btn_play"/>
         <Button
-            android:id="@+id/music_play_btn_shuffle"
-            android:layout_toLeftOf="@+id/music_play_btn_next"
+            android:id="@+id/music_begin_btn_shuffle"
+            android:layout_toLeftOf="@+id/music_begin_btn_next"
             android:layout_centerVertical="true"
             android:layout_marginRight="30dp"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:background="@mipmap/music_btn_shuffl"/>
         <Button
-            android:id="@id/music_play_btn_next"
+            android:id="@id/music_begin_btn_next"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
@@ -70,34 +70,36 @@
 
     
     <RelativeLayout
+        android:id="@+id/music_begin_playinglayout"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
         <ImageView
-            android:id="@+id/music_iv_default"
+            android:id="@+id/music_begin_iv_default"
             android:layout_marginLeft="10dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@mipmap/music_iv_default"
             />
         <TextView
-            android:id="@+id/music_tv_musictitle"
-            android:layout_toRightOf="@id/music_iv_default"
+            android:id="@+id/music_begin_tv_musictitle"
+            android:layout_toRightOf="@id/music_begin_iv_default"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:text="我是歌手" />
         <TextView
-            android:id="@+id/music_tv_musicauthor"
-            android:layout_below="@id/music_tv_musictitle"
-            android:layout_alignLeft="@id/music_tv_musictitle"
+            android:id="@+id/music_begin_tv_musicdutation"
+            android:layout_below="@id/music_begin_tv_musictitle"
+            android:layout_alignLeft="@id/music_begin_tv_musictitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:text="浙江卫视"/>
         <ImageView
+            android:id="@+id/music_begin_iv_list"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
