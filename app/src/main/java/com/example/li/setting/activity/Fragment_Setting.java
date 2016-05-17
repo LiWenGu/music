@@ -1,4 +1,4 @@
-package com.example.li.music.activity;
+package com.example.li.setting.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,11 +12,12 @@ import com.example.li.music.R;
 /**
  * Created by li on 2016/5/11.
  */
-public class Fragment_Diary extends Fragment {
+public class Fragment_Setting extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_diary, null);
+        View view = inflater.inflate(R.layout.main_setting, null);
         return view;
     }
 }

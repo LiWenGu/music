@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 
 import com.example.li.music.Util.ConstUtil;
@@ -18,14 +17,13 @@ import com.example.li.music.Util.MediaUtil;
 import com.example.li.music.model.Mp3Info;
 
 import java.util.List;
-import java.util.logging.LogRecord;
 
 /**
  * Created by li on 2016/5/11.
  */
 public class Music_Service extends Service {
 
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
     private String path;            // 音乐文件路径
     private String msg;
     private boolean isPause;        // 暂停状态
@@ -44,10 +42,11 @@ public class Music_Service extends Service {
                 if(mediaPlayer != null){
                     currentTime = mediaPlayer.getCurrentPosition(); // 获取当前音乐播放器进度条的位置
                     Intent intent = new Intent();
-                    intent.setAction("MUSIC_CURRENT");
+                    intent.setAction(ConstUtil.MUSIC_CURRENT);
                     intent.putExtra("currentTime", currentTime);
+                    intent.putExtra("current" , current);           //给begin界面，如果程序退出，进入begin界面，就不会显示正在播放的歌曲
                     sendBroadcast(intent); // 给PlayerActivity发送广播
-                    handler.sendEmptyMessageDelayed(1, 1000);
+                    handler.sendEmptyMessageDelayed(1, 100);
                 }
             }
         }
@@ -56,7 +55,6 @@ public class Music_Service extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("service","service created");
         mediaPlayer = new MediaPlayer();
         mp3Infos = MediaUtil.getMp3Infos(Music_Service.this.getContentResolver());
 
@@ -118,9 +116,9 @@ public class Music_Service extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        path = intent.getStringExtra("url");                //从BeginActivity的listview获取的歌曲路径
-        Log.d("service",path+"");
         current = intent.getIntExtra("listPosition", -1);   //当前播放歌曲的在mp3Infos的位置
+        if(current!=-1)
+            path = mp3Infos.get(current).getUrl();
         msg = intent.getStringExtra("MSG");                 //播放信息
         if (msg.equals("PLAY_MSG")) {                       //直接播放音乐
             play(0);
@@ -235,7 +233,7 @@ public class Music_Service extends Service {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            int control = intent.getIntExtra("control", -1);
+            int control = intent.getIntExtra("control",-1);
             switch (control){
                 case 1:
                     status = 1; //将播放状态置为1表示：单曲循环
@@ -249,6 +247,12 @@ public class Music_Service extends Service {
                 case 4:
                     status = 4; //将播放状态置为4表示：随机播放
                     break;
+                case 5:
+                    mediaPlayer.pause();  //拖动进度条暂停
+                    break;
+                default:
+                    mediaPlayer.seekTo(control);
+                    mediaPlayer.start();
             }
         }
     }

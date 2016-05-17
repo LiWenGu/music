@@ -36,8 +36,8 @@ public class MediaUtil {
                 MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
         List<Mp3Info> mp3Infos = new ArrayList<Mp3Info>();
         for(int i=0; i<cursor.getCount(); i++){
-            Mp3Info mp3Info = new Mp3Info();
             cursor.moveToNext();
+            Mp3Info mp3Info = new Mp3Info();
             long id = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
             String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
             String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));

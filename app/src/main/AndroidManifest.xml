@@ -21,14 +21,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Activity_Denglu">
+        <activity android:name="com.example.li.Activity_Denglu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.Activity_Main"/>
+        <activity android:name="com.example.li.Activity_Main"/>
 
         <service android:name=".Service.Music_Service" />
 

@@ -43,7 +43,7 @@
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:background="@mipmap/music_btn_previous" />
+            android:background="@drawable/music_btn_previous_selector" />
         <Button
             android:id="@+id/music_play_btn_repeat"
             android:layout_toRightOf="@id/music_play_btn_previous"
@@ -51,7 +51,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@mipmap/musci_btn_repeat"/>
+            android:background="@mipmap/music_btn_repeat_pressed"/>
         <Button
             android:id="@+id/music_play_btn_play"
             android:layout_centerInParent="true"
@@ -65,7 +65,7 @@
             android:layout_marginRight="30dp"
             android:layout_width="25dp"
             android:layout_height="30dp"
-            android:background="@mipmap/music_btn_shuffl"/>
+            android:background="@mipmap/music_btn_shuffle"/>
         <Button
             android:id="@id/music_play_btn_next"
             android:layout_alignParentRight="true"
@@ -73,6 +73,6 @@
             android:layout_marginRight="20dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@mipmap/music_btn_next"/>
+            android:background="@drawable/music_btn_next_selector"/>
     </RelativeLayout>
 </RelativeLayout>

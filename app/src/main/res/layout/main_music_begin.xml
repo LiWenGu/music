@@ -4,56 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/music_background">
-    <RelativeLayout
-        android:id="@+id/music_handle_btnlayout"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/music_begin_btn_previous"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:background="@mipmap/music_btn_previous" />
-        <Button
-            android:id="@+id/music_begin_btn_repeat"
-            android:layout_toRightOf="@id/music_begin_btn_previous"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@mipmap/musci_btn_repeat"/>
-        <Button
-            android:id="@+id/music_begin_btn_play"
-            android:layout_centerInParent="true"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@mipmap/music_btn_play"/>
-        <Button
-            android:id="@+id/music_begin_btn_shuffle"
-            android:layout_toLeftOf="@+id/music_begin_btn_next"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="30dp"
-            android:layout_width="25dp"
-            android:layout_height="30dp"
-            android:background="@mipmap/music_btn_shuffl"/>
-        <Button
-            android:id="@id/music_begin_btn_next"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@mipmap/music_btn_next"/>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/music_begin_tv_listtitle"
+        android:text="曲目"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="时长"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/music_tv_dividi"
-        android:layout_below="@id/music_handle_btnlayout"
+        android:layout_below="@id/music_begin_tv_listtitle"
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#ffffff"
@@ -88,24 +61,14 @@
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="我是歌手" />
+            android:textColor="#ffffff" />
         <TextView
             android:id="@+id/music_begin_tv_musicdutation"
             android:layout_below="@id/music_begin_tv_musictitle"
             android:layout_alignLeft="@id/music_begin_tv_musictitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="浙江卫视"/>
-        <ImageView
-            android:id="@+id/music_begin_iv_list"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:background="@mipmap/musci_btn_repeat"
-            />
+            android:textColor="#ffffff" />
         
         
     </RelativeLayout>

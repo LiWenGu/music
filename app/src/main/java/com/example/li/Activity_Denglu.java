@@ -1,4 +1,4 @@
-package com.example.li.music.activity;
+package com.example.li;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

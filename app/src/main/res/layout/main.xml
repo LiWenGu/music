@@ -10,7 +10,7 @@
         >
         <TextView
             android:id="@+id/main_tv_riji"
-            android:text="日记"
+            android:text="我的"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             />
         <TextView
             android:id="@+id/main_tv_setting"
-            android:text="设置"
+            android:text="日记"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

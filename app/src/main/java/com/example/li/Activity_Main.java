@@ -1,4 +1,4 @@
-package com.example.li.music.activity;
+package com.example.li;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -16,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.li.music.R;
+import com.example.li.diary.activity.Fragment_Diary;
+import com.example.li.music.activity.Fragment_Music;
+import com.example.li.setting.activity.Fragment_Setting;
 
 import java.util.ArrayList;
 
@@ -65,9 +68,9 @@ public class Activity_Main extends FragmentActivity {
         fragment_setting = new Fragment_Setting();
 
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(fragment_diary);
-        fragmentList.add(fragment_music);
         fragmentList.add(fragment_setting);
+        fragmentList.add(fragment_music);
+        fragmentList.add(fragment_diary);
 
         viewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
         viewPager.setOnPageChangeListener(new MyPagerChangeListener());
