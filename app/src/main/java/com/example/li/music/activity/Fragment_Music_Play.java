@@ -154,13 +154,14 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
                 break;
             case R.id.music_play_btn_play:
                 if(isFirstTime){
+                    btn_play.setBackgroundResource(R.mipmap.music_btn_play);
                     play();
                     isFirstTime = false;
                     isPlaying = true;
                     isPause = false;
                 }else{
                     if(isPlaying){
-                        //donghua
+                        btn_play.setBackgroundResource(R.mipmap.music_btn_play_pressed);
                         intent.setClass(getActivity(), Music_Service.class);
                         intent.putExtra("MSG","PAUSE_MSG");
                         LogUtil.v("sss",mlistPosition+"==");
@@ -169,9 +170,10 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
                         isPlaying = false;
                         isPause = true;
                     }else if(isPause){
-                        //donghua
+                        btn_play.setBackgroundResource(R.mipmap.music_btn_play);
                         intent.setClass(getActivity(), Music_Service.class);
                         intent.putExtra("MSG","CONTINUE_MSG");
+                        intent.putExtra("listPosition", mlistPosition);
                         getActivity().startService(intent);
                         isPause = false;
                         isPlaying = true;
@@ -208,6 +210,7 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
 
     //下一首歌曲
     public void next(){
+        btn_play.setBackgroundResource(R.mipmap.music_btn_play);
         mlistPosition = mlistPosition + 1;
         if(mlistPosition <= mp3Infos.size() - 1){
             mp3Info = mp3Infos.get(mlistPosition);
@@ -219,12 +222,14 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
             intent.putExtra("MSG", "NEXT_MSG");
             getActivity().startService(intent);
         }else{
+            mlistPosition = mlistPosition - 1;
             Toast.makeText(getActivity(), "没有下一首了", Toast.LENGTH_SHORT).show();
         }
     }
 
     //上一首歌曲
     public void previous(){
+        btn_play.setBackgroundResource(R.mipmap.music_btn_play);
         mlistPosition = mlistPosition - 1;
         if(mlistPosition >= 0){
             mp3Info = mp3Infos.get(mlistPosition);
@@ -236,6 +241,7 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
             intent.putExtra("MSG", "PRIVIOUS_MSG");
             getActivity().startService(intent);
         }else{
+            mlistPosition = mlistPosition + 1;
             Toast.makeText(getActivity(), "没有上一首了", Toast.LENGTH_SHORT).show();
         }
     }
