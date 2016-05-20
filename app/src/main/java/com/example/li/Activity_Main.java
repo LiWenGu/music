@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.li.music.R;
 import com.example.li.diary.activity.Fragment_Diary;
+import com.example.li.music.Util.LogUtil;
 import com.example.li.music.activity.Fragment_Music;
 import com.example.li.setting.activity.Fragment_Setting;
 
@@ -45,7 +46,6 @@ public class Activity_Main extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        //初始化指示器位置
         initImageView();
         initTextView();
         initViewPager();
@@ -78,8 +78,8 @@ public class Activity_Main extends FragmentActivity {
 
     private void initImageView() {
         cursor = (ImageView) findViewById(R.id.cursor);
-        bmpw = BitmapFactory.decodeResource(getResources(), R.mipmap.a)
-                .getWidth(); //获取图片宽度
+        //bmpw = cursor.getWidth(); //获取图片宽度*/
+        bmpw = 60;
         //获取分辨率宽度
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -89,6 +89,9 @@ public class Activity_Main extends FragmentActivity {
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
         cursor.setImageMatrix(matrix);  //设置动画初始位置
+        LogUtil.v("tag",screenW+"screenw=");
+        LogUtil.v("tag",bmpw+"bmpw=");
+        LogUtil.v("tag",offset+"offset=");
     }
 
     public class MyOnClickListenener implements View.OnClickListener{
