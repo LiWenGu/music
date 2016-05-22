@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/diary_begin_iv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/diary_begin_add"
+        />
+
+    <RelativeLayout
+        android:layout_below="@id/diary_begin_iv_add"
+        android:id="@+id/diary_begin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/diary_begin_iv_id1"
+            android:layout_width="80px"
+            android:layout_height="90px"
+            android:src="@mipmap/diary_begin_all"
+            />
+        <TextView
+            android:layout_toRightOf="@id/diary_begin_iv_id1"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="笔记"
+
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            />
+        <TextView
+            android:id="@+id/diary_begin_tv_id1"
+            android:layout_toLeftOf="@+id/diary_begin_iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="全部"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            />
+        <ImageView
+            android:id="@id/diary_begin_iv_right"
+            android:layout_alignTop="@id/diary_begin_tv_id1"
+            android:layout_centerVertical="true"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/diary_begin_right"
+            />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/diary_begin_list"
+        android:layout_below="@id/diary_begin_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</RelativeLayout>

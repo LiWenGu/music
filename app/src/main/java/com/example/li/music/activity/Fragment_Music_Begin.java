@@ -50,7 +50,7 @@ public class Fragment_Music_Begin extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_music_begin, null);
+        View view = inflater.inflate(R.layout.music_begin, null);
         findViewById(view);
         setViewOnclickListener();
         initListView();

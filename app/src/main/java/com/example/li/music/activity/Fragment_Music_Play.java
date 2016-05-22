@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +54,7 @@ public class Fragment_Music_Play extends Fragment implements View.OnClickListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.main_music_play, null);
+        View view  = inflater.inflate(R.layout.music_play, null);
         mp3Infos = MediaUtil.getMp3Infos(getActivity().getContentResolver()); //获取歌曲对象集合
         fromList = getArguments().getBoolean("fromList");
         mlistPosition = (int) getArguments().get("listPosition");
