@@ -23,8 +23,9 @@ public class Fragment_Diary_Edit extends Fragment implements View.OnClickListene
     private EditText titleEt, bodyEt;
     private Button btn;
     private DiaryDB diaryDB;
-    private Long id;
+    private Bundle bundle;
     private Fragment_Diary_begin fragment_diary_begin;
+    private String getTitle,getBody,created;
 
     @Nullable
     @Override
@@ -33,15 +34,15 @@ public class Fragment_Diary_Edit extends Fragment implements View.OnClickListene
         diaryDB = new DiaryDB(getContext());
 
         initView(view);
-        Bundle bundle = getArguments();
+        bundle = getArguments();
         if(bundle != null){
-            id = bundle.getLong("position");
-            String title = bundle.getString("title");
-            String body = bundle.getString("body");
-            if(title != null)
-                titleEt.setText(title);
-            if(body != null)
-                bodyEt.setText(body);
+            getTitle = bundle.getString("title");
+            getBody = bundle.getString("body");
+            created = bundle.getString("created");
+            if (getTitle != null)
+                titleEt.setText(getTitle);
+            if(getBody != null)
+                bodyEt.setText(getBody);
         }
         return view;
     }
@@ -60,11 +61,8 @@ public class Fragment_Diary_Edit extends Fragment implements View.OnClickListene
         String body = bodyEt.getText().toString();
         if(CheckInput.CheckInput(title,body)){
             diaryDB.open();
-            if(id != null){
-                LogUtil.v("tag",title);
-                LogUtil.v("tag",body);
-                LogUtil.v("tag",id+"---");
-                diaryDB.updateDiary(id, title, body);
+            if(bundle != null){
+                diaryDB.updateDiary(created,title, body);
             }else{
                 diaryDB.createDiary(title, body);
             }

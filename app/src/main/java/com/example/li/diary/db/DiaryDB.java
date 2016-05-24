@@ -90,10 +90,11 @@ public class DiaryDB {
 
     /**
      * 修改某一个日记
+     * 第一个参数是要修改数据的查找依据，根据创建时间来查找后面两个是要更改的值
      */
-    public boolean updateDiary(long rowId, String title, String body){
+    public boolean updateDiary(String mcreated, String title, String body){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_ID, title);
+        contentValues.put(KEY_TITLE, title);
         contentValues.put(KEY_BODY, body);
         Calendar calendar = Calendar.getInstance();
         String created = calendar.get(Calendar.YEAR) + "/"
@@ -102,8 +103,7 @@ public class DiaryDB {
                 + calendar.get(Calendar.HOUR_OF_DAY) + ":"
                 + calendar.get(Calendar.MINUTE);
         contentValues.put(KEY_CREATED, created);
-        String whereString = KEY_ID + "=" + rowId;
-        return sqLiteDatabase.update(DatabaseHelper.DATABASE_TABLE, contentValues, whereString, null) > 0;
+        return sqLiteDatabase.update(DatabaseHelper.DATABASE_TABLE, contentValues, "created = ?", new String[]{mcreated}) > 0;
     }
 
 }

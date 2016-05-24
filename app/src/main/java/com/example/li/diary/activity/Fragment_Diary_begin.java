@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.li.diary.db.DiaryDB;
 import com.example.li.diary.model.Diary;
 import com.example.li.music.R;
+import com.example.li.music.Util.LogUtil;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class Fragment_Diary_begin extends Fragment implements View.OnClickListen
         String[] from = new String[]{DiaryDB.KEY_TITLE, DiaryDB.KEY_BODY, DiaryDB.KEY_CREATED};
         int[] to = new int[]{R.id.diary_list_title, R.id.diary_list_intro, R.id.diary_list_time};
         listView = (ListView) view.findViewById(R.id.diary_begin_list);
-        diaryAdapter = new SimpleCursorAdapter(getContext(),R.layout.diary_begin_list_item,cursor,from,to);
+        diaryAdapter = new SimpleCursorAdapter(getContext(),R.layout.diary_begin_list_item,cursor, from, to);
         listView.setAdapter(diaryAdapter);
         listView.setOnItemClickListener(new MyOnItemClickListener());
     }
@@ -71,18 +72,25 @@ public class Fragment_Diary_begin extends Fragment implements View.OnClickListen
         }
     }
 
+    /**
+     * 在ListView中列表的点击事件，通过创建时间来判断其数据库的位置，然后展示，因为如果通过position来判断
+     * 会出现：如果删除了某个lisView列表页，数据库的id在新增数据时有BUG：
+     * 删除了position为2的列表数据，数据库新建时id为3，但是新建的position为2，而不是跳过id，即删除的数据id为空
+     */
     class MyOnItemClickListener implements AdapterView.OnItemClickListener {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Cursor c = cursor;
-            c.move(position);
+            Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+            String title = cursor.getString(cursor.getColumnIndex("title"));
+            String body = cursor.getString(cursor.getColumnIndex("body"));
+            String created = cursor.getString(cursor.getColumnIndex("created"));
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             Fragment_Diary_Edit fragment_diary_edit = new Fragment_Diary_Edit();
             Bundle bundle = new Bundle();
-            bundle.putLong("position", position);
-            bundle.putString("title", c.getString(c.getColumnIndexOrThrow(DiaryDB.KEY_TITLE)));
-            bundle.putString("body", c.getString(c.getColumnIndexOrThrow(DiaryDB.KEY_BODY)));
+            bundle.putString("title", title);
+            bundle.putString("body", body);
+            bundle.putString("created", created);
             fragment_diary_edit.setArguments(bundle);
             transaction.replace(R.id.main_diary_layout,fragment_diary_edit);
             transaction.addToBackStack(null);
